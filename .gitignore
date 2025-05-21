@@ -31,10 +31,12 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
+# .env 파일 및 모든 변형(.env*, 예: .env.local, .env.production 등)을 git에 포함하지 않도록 무시합니다.
 .env*
 
 # vercel
 .vercel
+
 
 # typescript
 *.tsbuildinfo
