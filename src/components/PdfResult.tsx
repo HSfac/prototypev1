@@ -1,6 +1,7 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import html2pdf from 'html2pdf.js';
 import { useStore } from '@/lib/store';
 import { buildPrompt } from '@/lib/promptBuilder';
 import { generateStatement } from '@/lib/gptClient';
@@ -27,9 +28,10 @@ export const PdfResult: React.FC = () => {
     generate();
   }, [answers]);
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     const element = document.getElementById('pdf-content');
     if (element) {
+      const html2pdf = (await import('html2pdf.js')).default;
       html2pdf().from(element).save('진술서.pdf');
     }
   };
